@@ -1,5 +1,5 @@
 <script>
-    import { theme } from "../../stores";
+    import { theme } from "../stores";
 </script>
 
 <div class="message-box" class:light-message={!$theme} class:dark-message={$theme}>

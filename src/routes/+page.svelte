@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import Textarea from "./components/textarea.svelte";
+    import Textarea from "../components/textarea.svelte";
     import { theme } from "../stores";
 </script>
 
