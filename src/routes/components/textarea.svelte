@@ -1,5 +1,5 @@
 <script>
-    import { theme } from "../stores";
+    import { theme } from "../../stores";
 </script>
 
 <div class="message-box" class:light-message={!$theme} class:dark-message={$theme}>
@@ -13,7 +13,7 @@
     .dark-btn, .light-btn {
         transition: all .2s ease-in-out;
         margin-top: 10px;
-        width: 200px;
+        width: 300px;
         height: 40px;
         border: none;
         border-radius: 8px;
@@ -70,6 +70,7 @@
         justify-content: center;
         position: relative; /* Make sure the background extends outside the div */
         height:100%;
+        width:100%;
     }
 
     #message {
@@ -79,8 +80,8 @@
         font-size: 1rem;
         border-radius: 10px; /* Slightly larger rounded corners */
         border: 3px solid gray; /* Thicker border */
-        background: #f9f9f9; /* Default background */
         resize: none;
+        background-color: #f9f9f9;
         position: relative;
         z-index: 2; /* Make sure the text area is on top of the background */
         box-shadow: 0 13px 12px rgba(0, 0, 0, 0.2); /* Thicker drop shadow for more depth */
@@ -88,21 +89,21 @@
     }
 
     #message:focus {
-        border-color: #4a90e2; /* Blue border on focus */
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow on focus */
+        border-color: #388ae7; /* Blue border on focus */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8); /* Stronger shadow on focus */
     }
 
     .dark-message {
         color: black;
         background: url('src/assets/poswiatad.png') no-repeat center center;
-        background-size:130%;
+        background-size:50%;
         z-index: 1; /* Place the background behind the textarea */
     }
 
     .light-message {
         color: rgb(54, 54, 54);
         background: url('src/assets/poswiatab.png') no-repeat center center;
-        background-size: 130%;
+        background-size: 50%;
         z-index: 1; /* Place the background behind the textarea */
     }
 

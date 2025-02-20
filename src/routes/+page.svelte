@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import Textarea from "./textarea.svelte";
+    import Textarea from "./components/textarea.svelte";
     import { theme } from "../stores";
 </script>
 
@@ -59,6 +59,7 @@
         justify-content: center; /* Keep text area centered */
         align-items: center;
         width: 100%;
+        height:100%;
         overflow: hidden; /* Prevent scrolling inside text area */
         margin-top: -10vw;
     }
