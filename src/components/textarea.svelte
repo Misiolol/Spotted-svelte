@@ -1,11 +1,23 @@
 <script>
     import { theme } from "../stores";
+    import { telle } from "../stores";
+    let currentTell = ''
+    let error = true;
+    function addTell(){
+        error = false;
+        if(!currentTell){
+            error = true;
+        }
+        telle.update(items => [...items, currentTell]);
+        console.log({$telle})
+        currentTell = "";
+    }
 </script>
 
 <div class="message-box" class:light-message={!$theme} class:dark-message={$theme}>
     <form class="form-container">
-        <textarea id="message" rows="4" placeholder="Text"></textarea>
-        <button type="button" class="btn-send" class:light-btn={!$theme} class:dark-btn={$theme}>Wyślij</button>
+        <textarea bind:value={currentTell} id="message" rows="4" placeholder="Text"></textarea>
+        <button onclick={addTell} type="button" class="btn-send" class:light-btn={!$theme} class:dark-btn={$theme}>Wyślij</button>
     </form>
 </div>
 
