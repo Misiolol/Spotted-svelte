@@ -2,7 +2,7 @@
     import { theme } from "../stores";
     import { telle } from "../stores";
     let currentTell = ''
-    let error = true;
+    let error = false;
     function addTell(){
         error = false;
         if(!currentTell){
