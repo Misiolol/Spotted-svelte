@@ -33,7 +33,7 @@
         display: flex;
         align-items: center; /* Centers the toggle vertically */
         justify-content: flex-end; /* Align the toggler to the right */
-        height: 40px; /* Make header taller */
+        height: 60px; /* Make header taller */
         padding: 0 20px; /* Padding for spacing */
         transition: all .2s ease-in-out;
     }
@@ -50,7 +50,6 @@
     }
 
     .toggle-wrapper {
-		margin-top:12px;
         transition: all .2s ease-in-out;
         display: flex;
         align-items: center; 

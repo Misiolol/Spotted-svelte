@@ -21,7 +21,7 @@
 
 <style>
     .wrapper {
-        height: calc(100vh - 40px); /* Subtract header height (40px) */
+        height: calc(100vh - 50px); /* Subtract header height (40px) */
         width: 100vw;
         display: flex;
         flex-direction: column;
