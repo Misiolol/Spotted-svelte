@@ -393,6 +393,7 @@
     
     .logout-button {
         position: absolute;
+        margin-top:50px;
         top: 20px;
         right: 20px;
         padding: 0.75rem 1.5rem;

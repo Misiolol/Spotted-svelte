@@ -1,5 +1,6 @@
 <script>
   import { authHandlers } from "../store/store";
+  import { theme } from "../stores";
 
   let email = "";
   let password = "";
@@ -16,18 +17,21 @@
     if (password.length < 6) {
         error = true;
         errorMessage = "Password must be at least 6 characters long";
+        console.log(errorMessage);
         return;
     }
 
     if (!email || !password || (register && !confirmPass)) {
         error = true;
         errorMessage = "Please fill in all fields";
+        console.log(errorMessage);
         return;
     }
 
     if (register && password !== confirmPass) {
         error = true;
         errorMessage = "Passwords do not match";
+        console.log(errorMessage);
         return;
     }
 
@@ -60,21 +64,21 @@
 
 <div class="authContainer">
   <form on:submit|preventDefault={handleAuthenticate}>
-    <h1>{register ? "Register" : "Login"}</h1>
+    <h1 class:light-text={!$theme} class:dark-text={$theme}>{register ? "Register" : "Login"}</h1>
     {#if error}
       <p class="error">cos zle</p>
     {/if}
     <label>
-      <p class={email ? "above" : "center"}>Email</p>
-      <input bind:value={email} type="email" placeholder="Email" />
+      <p class:light-text={!$theme} class:dark-text={$theme} class={email ? "above" : "center"}>Email</p>
+      <input class:light-text={!$theme} class:dark-text={$theme} bind:value={email} type="email" placeholder="Email" />
     </label>
     <label>
-      <p class={password ? "above" : "center"}>Password</p>
-      <input bind:value={password} type="password" placeholder="Password" />
+      <p class:light-text={!$theme} class:dark-text={$theme} class={password ? "above" : "center"}>Password</p>
+      <input class:light-text={!$theme} class:dark-text={$theme} bind:value={password} type="password" placeholder="Password" />
     </label>
     {#if register}
       <label>
-        <p class={confirmPass ? "above" : "center"}>Confirm Password</p>
+        <p class:light-text={!$theme} class:dark-text={$theme} class={confirmPass ? "above" : "center"}>Confirm Password</p>
         <input bind:value={confirmPass} type="password" placeholder="Confirm Password" />
       </label>
     {/if}
@@ -88,17 +92,16 @@
     </button>
   </form>
   <div class="options">
-    <p>Or</p>
     {#if register}
       <div>
         <p>Already have an account?</p>
         <p on:click={handleRegister} on:keydown={() => {}}>Login</p>
       </div>
     {:else}
-      <div>
+      <!--<div>
         <p>Don't have an account?</p>
         <p on:click={handleRegister} on:keydown={() => {}}>Register</p>
-      </div>
+      </div>-->
     {/if}
   </div>
 </div>
@@ -112,6 +115,14 @@
     flex: 1;
     padding: 24px;
   }
+
+  .light-text {
+      color: #1a1f2c;
+    }
+  
+  .dark-text {
+    color: #ffffff;
+    }
 
   form {
     display: flex;
