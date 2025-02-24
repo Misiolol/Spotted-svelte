@@ -1,5 +1,7 @@
 <script lang="ts">
     import { theme } from "../../../stores";
+    import { auth } from "../../../lib/firebase/firebase";
+    import { signOut } from "firebase/auth";
     
     let telle = ["bajka", "jajko"];
     let currentTell = '';
@@ -38,11 +40,28 @@
       }
     }
 
+    async function handleLogout() {
+        try {
+            await signOut(auth);
+            window.location.href = "/";
+        } catch (error) {
+            console.log("Error signing out:", error);
+        }
+    }
+
   </script>
   
   <div class="wrapper" class:light-wrapper={!$theme} class:dark-wrapper={$theme}>
+    <button 
+      on:click={handleLogout}
+      class="logout-button"
+      class:light-button={!$theme}
+      class:dark-button={$theme}
+      >
+      Logout
+    </button>
     <main>
-      <h1 class="title" class:light-text={!$theme} class:dark-text={$theme}>My List</h1>
+      <h1 class="title" class:light-text={!$theme} class:dark-text={$theme}>Telle: </h1>
       
       <div class="list-container">
         {#each telle as tell, index}
@@ -106,7 +125,7 @@
           class:dark-input={$theme}
         />
         {#if error}
-          <p class="error-message">Please enter an item</p>
+          <p class="error-message">napisz tella</p>
         {/if}
       </div>
       <button 
@@ -370,5 +389,26 @@
       .tell-item {
         padding: 0.75rem;
       }
+    }
+    
+    .logout-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        border: none;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .logout-button:hover {
+        transform: translateY(-1px);
+        filter: brightness(1.1);
+    }
+
+    .logout-button:active {
+        transform: translateY(0);
     }
   </style>

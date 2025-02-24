@@ -26,6 +26,7 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
+		"firebase": "^11.3.1",
 		"tailgrids": "^2.2.7"
 	}
 }
